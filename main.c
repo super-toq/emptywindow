@@ -33,6 +33,12 @@ on_activate (AdwApplication *app, gpointer)
     /* ----- Label als Inhalt der AdwApplicationWindow festlegen ----- */ 
     adw_toolbar_view_set_content (toolbar_view, label);
 
+    /* ----- Schaltfläche erzeugen ----- */
+    GtkWidget *first_btn = gtk_button_new_with_label("button");
+
+    /* ----- Schaltfläche dem toolbarview hinzufügen ----- */
+    adw_toolbar_view_set_content(toolbar_view, first_btn);
+
     /* ----- Fenster desktop‑konform anzeigen lassen ----- */
     gtk_window_present(GTK_WINDOW(win));
 
