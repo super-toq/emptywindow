@@ -27,17 +27,31 @@ on_activate (AdwApplication *app, gpointer)
     adw_header_bar_set_title_widget (header, gtk_label_new("My First Window"));
     adw_toolbar_view_add_top_bar (toolbar_view, GTK_WIDGET (header));
 
-        /* ----- Text-Label erstellen  ----- */
+    /* ---- Haupt‑Box erstellen ------------------------------------------------------------- */
+    GtkBox *box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 12));
+    gtk_widget_set_margin_top    (GTK_WIDGET (box), 20);
+    gtk_widget_set_margin_bottom (GTK_WIDGET (box), 20);
+    gtk_widget_set_margin_start  (GTK_WIDGET (box), 20);
+    gtk_widget_set_margin_end    (GTK_WIDGET (box), 20);
+    gtk_widget_set_hexpand (GTK_WIDGET (box), TRUE);
+    gtk_widget_set_vexpand (GTK_WIDGET (box), TRUE);
+
+    /* ----- Text-Label erstellen  ----- */
     GtkWidget *label = gtk_label_new("~ libadwaita ~");
 
-    /* ----- Label als Inhalt der AdwApplicationWindow festlegen ----- */ 
-    adw_toolbar_view_set_content (toolbar_view, label);
+    /* ----- Label als Inhalt zur hinzufügen ----- */ 
+    gtk_box_append (box, label);
+    //adw_toolbar_view_set_content (toolbar_view, label);
 
     /* ----- Schaltfläche erzeugen ----- */
     GtkWidget *first_btn = gtk_button_new_with_label("button");
 
-    /* ----- Schaltfläche dem toolbarview hinzufügen ----- */
-    adw_toolbar_view_set_content(toolbar_view, first_btn);
+    /* ----- Schaltfläche der Box hinzufügen ----- */
+    gtk_box_append(box, first_btn);
+    //adw_toolbar_view_set_content(toolbar_view, first_btn);
+
+    /* -----  Box zur ToolbarView hinzufügen ------------ */
+    adw_toolbar_view_set_content(toolbar_view, GTK_WIDGET(box));
 
     /* ----- Fenster desktop‑konform anzeigen lassen ----- */
     gtk_window_present(GTK_WINDOW(win));
