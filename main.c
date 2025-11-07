@@ -4,6 +4,8 @@
  * 
  * From my point of view, this codebase is complete so far, I will then turn to the next level.
  * 
+ * Please note:
+ * The Use of this code and execution of the applications is at your own risk, I accept no liability!
  */
 
 #include <adwaita.h>
