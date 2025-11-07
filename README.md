@@ -1,8 +1,7 @@
 ### Window is a libadwaita window
 
-A test project nothing more.
+A simple demo, nothing more.
 
 ![window](preview-img1.png?raw=true) 
 
-I look at something, inform myself, try it out, test the function and learn from what happens...
-
+I review code, try to understand it, experiment with it, combine it, and learn from what happens."
