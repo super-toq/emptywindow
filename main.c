@@ -6,9 +6,10 @@
 
 #include <adwaita.h>
 
-
+/* -------------------------------------------------------------------------------- */
+/* ---------- Callback-Funktion wird aufgerufen wenn Anw. aktiviert wird ---------- */
 static void
-on_activate (AdwApplication *app, gpointer user_data) //Callback-Funktion wird aufgerufen wenn Anw. aktiviert wird
+on_activate (AdwApplication *app, gpointer user_data)
 {
     /* ----- Adwaita-Fenster wird erstellt und als "win" gespeichert -------------------------- */
     AdwApplicationWindow *win = ADW_APPLICATION_WINDOW (adw_application_window_new (GTK_APPLICATION (app))); 
@@ -29,7 +30,7 @@ on_activate (AdwApplication *app, gpointer user_data) //Callback-Funktion wird a
         /* ----- Text-Label erstellen  ----- */
     GtkWidget *label = gtk_label_new("~ libadwaita ~");
 
-    /* ----- Label als als Inhalt der AdwApplicationWindow festlegen ----- */ 
+    /* ----- Label als Inhalt der AdwApplicationWindow festlegen ----- */ 
     adw_toolbar_view_set_content (toolbar_view, label);
 
 }
@@ -46,3 +47,4 @@ main (int argc, char **argv)
     g_signal_connect (app, "activate", G_CALLBACK (on_activate), NULL); // Signal mit on_activate verbinden
 
     return g_application_run (G_APPLICATION (app), argc, argv); // g_application_run startet Anw. u. wartet auf Ereignis
+}
