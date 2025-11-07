@@ -6,6 +6,11 @@
 
 #include <adwaita.h>
 
+
+static void on_button_clicked (GtkButton *button, gpointer)
+{
+    g_print ("Button clicked\n");
+}
 /* -------------------------------------------------------------------------------- */
 /* ---------- Callback-Funktion wird aufgerufen wenn Anw. aktiviert wird ---------- */
 static void
@@ -38,6 +43,8 @@ on_activate (AdwApplication *app, gpointer)
 
     /* ----- Text-Label erstellen  ----- */
     GtkWidget *label = gtk_label_new("~ libadwaita ~");
+    gtk_widget_set_halign (label, GTK_ALIGN_CENTER);
+    gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
 
     /* ----- Label als Inhalt zur hinzufügen ----- */ 
     gtk_box_append (box, label);
@@ -45,10 +52,11 @@ on_activate (AdwApplication *app, gpointer)
 
     /* ----- Schaltfläche erzeugen ----- */
     GtkWidget *first_btn = gtk_button_new_with_label("button");
+    gtk_widget_set_halign(first_btn, GTK_ALIGN_CENTER);
+    g_signal_connect(first_btn, "clicked", G_CALLBACK(on_button_clicked), app); // Funktion auslösen
 
     /* ----- Schaltfläche der Box hinzufügen ----- */
     gtk_box_append(box, first_btn);
-    //adw_toolbar_view_set_content(toolbar_view, first_btn);
 
     /* -----  Box zur ToolbarView hinzufügen ------------ */
     adw_toolbar_view_set_content(toolbar_view, GTK_WIDGET(box));
