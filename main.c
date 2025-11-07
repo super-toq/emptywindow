@@ -9,7 +9,7 @@
 /* -------------------------------------------------------------------------------- */
 /* ---------- Callback-Funktion wird aufgerufen wenn Anw. aktiviert wird ---------- */
 static void
-on_activate (AdwApplication *app, gpointer user_data)
+on_activate (AdwApplication *app, gpointer)
 {
     /* ----- Adwaita-Fenster wird erstellt und als "win" gespeichert -------------------------- */
     AdwApplicationWindow *win = ADW_APPLICATION_WINDOW (adw_application_window_new (GTK_APPLICATION (app))); 
@@ -33,13 +33,15 @@ on_activate (AdwApplication *app, gpointer user_data)
     /* ----- Label als Inhalt der AdwApplicationWindow festlegen ----- */ 
     adw_toolbar_view_set_content (toolbar_view, label);
 
+    /* ----- Fenster desktop‑konform anzeigen lassen ----- */
+    gtk_window_present(GTK_WINDOW(win));
+
 }
 
 /* ---------------------------------------------------------------------------
  * Anwendungshauptteil, main()
  * --------------------------------------------------------------------------- */
-int
-main (int argc, char **argv)
+int main (int argc, char **argv)
 {
     g_autoptr (AdwApplication) app =                        // Instanz erstellen, mit App-ID und Default-Flags
         adw_application_new ("free.toq.window", G_APPLICATION_DEFAULT_FLAGS);
