@@ -54,7 +54,6 @@ static void on_activate (AdwApplication *app, gpointer)
 
     gtk_window_set_title (GTK_WINDOW(win), "empty window");   // Fenstertitel
     gtk_window_set_default_size (GTK_WINDOW(win), 640, 400);  // Standard-Fenstergröße
-    gtk_window_present (GTK_WINDOW(win));                     // Fenster anzeigen lassen
 
     /* ----- ToolbarView (als Root‑Widget) erstellt und als Inhalt des Fensters festgelegt -- */
     AdwToolbarView *toolbar_view = ADW_TOOLBAR_VIEW (adw_toolbar_view_new ());
@@ -79,7 +78,7 @@ static void on_activate (AdwApplication *app, gpointer)
     gtk_widget_set_halign (label, GTK_ALIGN_CENTER);
     gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
 
-    /* ----- Label als Inhalt zur hinzufügen ----- */ 
+    /* ----- Label als Inhalt der Box hinzufügen ----- */ 
     gtk_box_append (box, label);
     //adw_toolbar_view_set_content (toolbar_view, label);
 
