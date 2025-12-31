@@ -12,5 +12,7 @@ Personally, I work with the GNOME desktop environment and I like the Adwaita des
   
 
 
-### Please note:
-This code is part of my learning project and is for demonstration purposes only.
+
+> [!Note]  
+> This code is part of my learning project 2025 and is for demonstration purposes only.  
+  
